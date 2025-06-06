@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #8e44ad;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      color: white;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 36px;
+      letter-spacing: 2px;
+    }
+
+    .calculator-box {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    input[type="date"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #8e44ad;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .results {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .box {
+      background: white;
+      color: black;
+      width: 100px;
+      text-align: center;
+      padding: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .box h2 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .box p {
+      margin: 5px 0 0 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AGE CALCULATOR</h1>
+  <div class="calculator-box">
+    <input type="date" id="dob">
+    <button onclick="calculateAge()">Calculator</button>
+  </div>
+
+  <div class="results">
+    <div class="box">
+      <h2 id="years">00</h2>
+      <p>YEAR</p>
+    </div>
+    <div class="box">
+      <h2 id="months">00</h2>
+      <p>MONTH</p>
+    </div>
+    <div class="box">
+      <h2 id="days">00</h2>
+      <p>DAY</p>
+    </div>
+  </div>
+
+  <script>
+    function calculateAge() {
+      const dob = new Date(document.getElementById('dob').value);
+      if (!dob.getTime()) {
+        alert("Please enter a valid date.");
+        return;
+      }
+
+      const today = new Date();
+      let years = today.getFullYear() - dob.getFullYear();
+      let months = today.getMonth() - dob.getMonth();
+      let days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        days += prevMonth;
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      document.getElementById("years").innerText = years.toString().padStart(2, '0');
+      document.getElementById("months").innerText = months.toString().padStart(2, '0');
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+    }
+  </script>
+
+</body>
+</html>
