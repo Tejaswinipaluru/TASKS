@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin:0px;
+
+        }
+        .container
+        {
+            display: flex;
+            gap: 60px;
+
+        }
+
+    .nav1{
+        border: 2px solid black;
+        padding: 10px;
+        width:240px;
+        margin: 10px;
+    }
+
+    ul{
+        background-color:aquamarine;
+        list-style: none;
+    }
+    li{
+        height: 10px;
+        padding: 25px;
+        color: blue;
+        font-weight: bolder;
+        font-size: larger;
+    }
+    li:hover{
+        background-color: orange;
+        color: white;
+    }
+    .nav2{
+        border:2px solid black;
+        padding:10px;
+        width:505px;
+        margin:10px;
+    }
+
+    .ul2{
+        background-color:rgb(205,197, 197);
+        list-style:none;
+        display:flex;
+        text-align:center;
+
+    }
+
+.li2{
+    height: 10px;
+    width:65px;
+    padding: 25px;
+    color: blue;
+    font-weight: bolder;
+    font-size: larger;
+    border: 1px solid black;
+}
+
+.li2:hover{
+    background-color: rgb(54,50,50);
+    color: white;
+
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Vertical Navigation Bar</h1>
+            <div class="nav1">
+                <ul>
+                    <li>Home</li>
+                    <li>Java</li>
+                    <li>CSS</li>
+                    <li>HTML</li>
+                    <li>Bootstrap</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h1>Horizontal Navigation</h1>
+            <div class="nav2">
+                <ul class="ul2">
+                    <li class="li2">Home</li>
+                    <li class="li2">Java</li>
+                    <li class="li2">CSS</li>
+                    <li class="li2">HTML</li>
+                    <li class="li2">Bootstrap</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
